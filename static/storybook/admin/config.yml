@@ -9,7 +9,7 @@ public_folder: /assets
 collections:
   - name: blogwwww
     label: Component Use
-    folder: components/0__Button
+    folder: testfolder
     create: true
     fields:
       - { name: path, label: Path }
