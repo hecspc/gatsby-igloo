@@ -8,9 +8,11 @@ public_folder: /assets
 
 collections:
  - name: blogwwww
-   label: Component Use
+   label: Component Uses
    folder: components/0__Button/
    create: true
+   extension: 'mdx'
+   format: 'frontmatter'
    fields:
      - { name: path, label: Path }
      - { name: date, label: Date, widget: date }
