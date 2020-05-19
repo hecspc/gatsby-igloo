@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 // import { IndexPageTemplate } from '../../templates/index-page'
-import MDX from "@mdx-js/runtime"
+// import MDX from "@mdx-js/runtime"
 
 import { RenderMarkdown } from '../render-markdown.component'
 
