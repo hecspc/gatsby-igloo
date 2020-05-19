@@ -7,10 +7,10 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
- - name: blogwwww
-   label: Component Uses
+ - name: button
+   label: Button Documentation
    folder: components/0__Button/
-   create: true
+   create: false
    extension: 'mdx'
    format: 'frontmatter'
    fields:

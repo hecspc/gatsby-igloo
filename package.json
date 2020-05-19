@@ -13,8 +13,11 @@
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
+    "@mdx-js/mdx": "^1.6.1",
+    "@mdx-js/react": "^1.6.1",
     "cross-env": "7.0.0",
     "gatsby": "^2.19.7",
+    "gatsby-plugin-mdx": "^1.2.9",
     "gatsby-plugin-netlify-cms": "^4.3.2",
     "gatsby-theme-emulsify": "^1.0.0-alpha.7",
     "netlify-cms-app": "^2.12.12",
