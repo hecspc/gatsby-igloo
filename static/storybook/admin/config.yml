@@ -1,13 +1,14 @@
 backend:
    name: git-gateway
    branch: master
+   site_domain: localhost
  
 media_folder: static/assets
 public_folder: /assets
 
 collections:
-  - name: blog
-    label: Blog
+  - name: blogwwww
+    label: Component Use
     folder: components/0__Button
     create: true
     fields:
