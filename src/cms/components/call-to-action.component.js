@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-// import { SmartLink } from "./smart-link.component"
+import { SmartLink } from "./smart-link.component"
 
 export const CallToAction = ({ url, children, align, bgColor, ...other }) => {
   const style = {
@@ -13,9 +13,9 @@ export const CallToAction = ({ url, children, align, bgColor, ...other }) => {
     color: "white",
   }
   const link = (
-    <a to={url} style={style} {...other}>
+    <SmartLink to={url} style={style} {...other}>
       {children}
-    </a>
+    </SmartLink>
   )
 
   return align === "center" ? (
@@ -26,6 +26,6 @@ export const CallToAction = ({ url, children, align, bgColor, ...other }) => {
 }
 
 CallToAction.propTypes = {
-  url: PropTypes.string,
+  url: PropTypes.string.isRequired,
   align: PropTypes.string,
 }
