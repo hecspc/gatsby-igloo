@@ -1,0 +1,87 @@
+
+
+
+.root {
+  padding-bottom: 4;
+}
+
+.component {
+  position: relative;
+  z-index: 1;
+  &:not(.component_block) {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.component_block {
+    padding: 10;
+    display: block;
+  }
+}
+
+.optionsBlock {
+  background: #e8e8e8;
+}
+
+.options {
+  padding: 5px;
+ 
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.optionItem {
+  padding-bottom: 16;
+  
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-bottom: 0;
+  
+}
+
+._optionText {
+  font-size: 16px;
+  height: 16;
+  line-height: 16;
+ 
+}
+
+.label {
+
+}
+
+.select {
+
+  background: #fff;
+  border: 0;
+  width: 100%;
+  margin: 0;
+
+}
+
+.codeBlock {
+  background: #fff;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-bottom: 6;
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.symbolName {
+  margin-bottom: 3;
+}
+
+.symbolElement {
+  margin-bottom: 5;
+}

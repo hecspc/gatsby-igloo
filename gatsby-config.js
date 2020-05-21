@@ -1,6 +1,7 @@
 module.exports = {
   pathPrefix: '/gatsby-theme-emulsify-workspace', // for deploying to a folder like on Github pages.
   plugins: [
+    `gatsby-plugin-less`,
     {
       resolve: 'gatsby-theme-emulsify',
       options: {
