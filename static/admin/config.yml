@@ -3,6 +3,8 @@ backend:
   branch: master
   site_domain: localhost
 
+publish_mode: editorial_workflow
+
 media_folder: static/assets
 public_folder: /assets
 
