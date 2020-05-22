@@ -9,14 +9,12 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
- - name: Components
+ - name: components
    label: Component Documentation
    folder: components/docs
    create: false
    extension: 'mdx'
    format: 'frontmatter'
    fields:
-     - { name: path, label: Path }
-     - { name: date, label: Date, widget: date }
      - { name: title, label: Title }
      - { name: body, label: Body, widget: markdown }

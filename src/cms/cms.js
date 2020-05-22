@@ -7,7 +7,7 @@ import { ctaEditorConfig } from "./editor-components/call-to-action.editor"
 import {testimonialEditorConfig} from "./editor-components/testimonial.editor"
 
 
-CMS.registerPreviewTemplate('button', IndexPagePreview)
+CMS.registerPreviewTemplate('components', IndexPagePreview)
 
 // Extend editor
 CMS.registerEditorComponent(ctaEditorConfig)
