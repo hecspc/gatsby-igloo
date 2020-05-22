@@ -15,7 +15,7 @@ const IndexPagePreview = ({ entry, getAsset }) => {
         <MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
           {data.body}
         </MDX>
-        TEST
+        -- using template -- 
         {/* <RenderMarkdown
             md={data.body}
           /> */}
