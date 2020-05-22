@@ -8,7 +8,7 @@ export default {
   category: 'Form',
   component: Button,
   initialProps: {
-    children: 'works',
+    children: 'Click Me',
     color: 'primary',
     variant: 'contained'
   },
