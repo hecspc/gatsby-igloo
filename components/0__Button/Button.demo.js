@@ -1,8 +1,6 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
+import Button from '../../src/components/Button/Button';
 import Icon from '@material-ui/core/Icon'
-import styles from './Button.less';
-import classnames from 'classnames';
 
 export default {
   route: '/button',
@@ -10,7 +8,7 @@ export default {
   category: 'Form',
   component: Button,
   initialProps: {
-    children: 'Hello world',
+    children: 'works',
     color: 'primary',
     variant: 'contained'
   },
