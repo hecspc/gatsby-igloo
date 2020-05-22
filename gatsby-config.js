@@ -7,7 +7,7 @@ module.exports = {
       options: {
         // Site Metadata for style guide
         siteMetadata: {
-          title: 'Example',
+          title: 'Igloo Design System',
           description: '',
           author: '',
         },

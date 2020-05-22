@@ -3,7 +3,7 @@ title: "CTAs"
 publishToStyleGuide: true
 description: "All About CTA Usage"
 tab: "Usage"
-tabOrder: 3
+tabOrder: 1
 ---
 
 # This is about CTA Usage

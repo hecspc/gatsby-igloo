@@ -1,8 +1,8 @@
 // Originally copied from https://github.com/moroshko/react-baseline
 // to support React v16, but this feels more like internal code anyway.
 
-import React, { Children } from 'react';
-import PropTypes from 'prop-types';
+import React, { Children } from "react";
+import PropTypes from "prop-types";
 
 // import lessToJs from 'less-vars-to-js';
 // import grid from '!!raw-loader!seek-style-guide/theme/layout/grid.less';
@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 // const rowHeight = parseInt(gridValues['@row-height'], 10);
 
 function calculateBackground(type, lineHeight, color) {
-  if (type === 'line') {
+  if (type === "line") {
     const percentage = ((lineHeight - 1) / lineHeight) * 100;
 
     return {
@@ -36,19 +36,19 @@ function Baseline(props) {
     ...restProps
   } = props;
   const baselineStyle = {
-    position: 'relative',
+    position: "relative",
     top: 0,
     left: 0,
     bottom: 0,
     right: 0,
-    pointerEvents: 'none',
+    pointerEvents: "none",
     padding: 10,
-    border: '#ccc 1px solid',
-    ...calculateBackground(type, lineHeight, color)
+    border: "#ccc 1px solid",
+    ...calculateBackground(type, lineHeight, color),
   };
   const rootProps = {
     ...restProps,
-    style: { ...style, position: 'relative' }
+    style: { ...style, position: "relative" },
   };
 
   return (
@@ -57,10 +57,10 @@ function Baseline(props) {
     //   {Children.only(children)}
     // </div>
 
-<div style={{padding:20, border: '#ccc 1px solid',}}>
-{isVisible && <div />}
-{Children.only(children)}
-</div>
+    <div style={{ padding: 20, border: "#ccc 1px solid" }}>
+      {isVisible && <div />}
+      {Children.only(children)}
+    </div>
   );
 }
 
@@ -70,15 +70,15 @@ Baseline.propTypes = {
   lineHeight: PropTypes.number,
   color: PropTypes.string,
   children: PropTypes.node.isRequired,
-  style: PropTypes.object
+  style: PropTypes.object,
 };
 
 Baseline.defaultProps = {
   isVisible: true,
-  type: 'line',
+  type: "line",
   lineHeight: 16,
-  color: 'rgba(0, 0, 0, 0.15)',
-  style: {}
+  color: "rgba(0, 0, 0, 0.15)",
+  style: {},
 };
 
 export default Baseline;
