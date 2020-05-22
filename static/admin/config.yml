@@ -20,3 +20,14 @@ collections:
      - { name: date, label: Date, widget: date }
      - { name: title, label: Title }
      - { name: body, label: Body, widget: markdown }
+ - name: pages
+   label: Component Documentation
+   folder: components/docs/
+   create: false
+   extension: 'mdx'
+   format: 'frontmatter'
+   fields:
+     - { name: path, label: Path }
+     - { name: date, label: Date, widget: date }
+     - { name: title, label: Title }
+     - { name: body, label: Body, widget: markdown }
