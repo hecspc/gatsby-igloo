@@ -1,10 +1,10 @@
 ---
-title: "Home"
-description: "This is the Emulsify Design System Style Guide Homepage"
+title: "Igloo Design System"
+description: "This is the Igloo Design System Homepage"
 publishToStyleGuide: true
 ---
 
-# This is an example of the Emulsify Gatsby Style Guide
+# Welcome ...
 
 It can be used to generate a custom style guide powered by <a href="https://gatsbyjs.org">Gatsby</a>, <a href="https://github.com/mdx-js/specification">MDX</a>, and <a href="https://theme-ui.com/">Theme UI</a>.
 
@@ -14,6 +14,3 @@ It can be used to generate a custom style guide powered by <a href="https://gats
 1. [Installation & Usage](0__getting-started/1__installation-&-usage/)
 1. [Example Documentation](1__documentation/0__colors/)
 1. [Example Component Documentation](button/code/)
-
-
-
