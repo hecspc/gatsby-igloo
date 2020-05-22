@@ -8,6 +8,7 @@ import {testimonialEditorConfig} from "./editor-components/testimonial.editor"
 
 
 CMS.registerPreviewTemplate('button', IndexPagePreview)
+CMS.registerPreviewTemplate('page', IndexPagePreview)
 
 // Extend editor
 CMS.registerEditorComponent(ctaEditorConfig)
