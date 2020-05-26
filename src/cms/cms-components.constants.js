@@ -1,7 +1,7 @@
 import React from "react"
 
 import { CallToAction } from "./components/call-to-action.component"
-import Button from '@material-ui/core/Button/Button'
+import Button from '../../src/components/Button/Button'
 
 // Include all components that will be parsed by MDX as React components here.
 // Any React component you'd like to allow your editors to use should be placed here.
