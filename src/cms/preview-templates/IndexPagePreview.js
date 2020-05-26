@@ -7,8 +7,6 @@ import { CMS_COMPONENTS, CMS_SHORTCODES } from "../cms-components.constants";
 
 const IndexPagePreview = ({ entry, getAsset }) => {
   const data = entry.getIn(["data"]).toJS();
-console.log(entry.getIn(["data"]));
-
   if (data) {
     console.log(data);
     return (
