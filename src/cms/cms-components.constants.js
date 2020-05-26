@@ -9,6 +9,7 @@ export const CMS_SHORTCODES = {
   CallToAction: props => <CallToAction {...props} />,
   Testimonial: props => <Button {...props} />,
   youtube: props => <Button {...props} >youtube</Button>,
+  Button: props => <Button {...props} />,
 }
 
 // Include any tags you'd like to replace with React components
