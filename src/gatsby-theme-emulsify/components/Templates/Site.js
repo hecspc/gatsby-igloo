@@ -9,6 +9,11 @@ import Tabs from "gatsby-theme-emulsify/src/components/Organisms/Tabs/Tabs.compo
 import "gatsby-theme-emulsify/src/components/Templates/site.css";
 import "gatsby-theme-emulsify/src/components/Templates/main.css";
 
+import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+import igloo from '../../../theme/igloo'
+
 export default ({
   title,
   pageTitle,
@@ -37,7 +42,13 @@ export default ({
     .sort(function(a, b) {
       return a.node.frontmatter.tabOrder - b.node.frontmatter.tabOrder;
     });
+
+    let theme = createMuiTheme(igloo);
+
+    theme = responsiveFontSizes(theme);
+
   return (
+    <ThemeProvider theme={theme}>
     <div className={isMenuOpen ? "wrapper-open wrapper" : "wrapper"}>
       <Flex className="main">
         <Sidebar
@@ -140,5 +151,6 @@ export default ({
         </Flex>
       </Flex>
     </div>
+    </ThemeProvider>
   );
 };

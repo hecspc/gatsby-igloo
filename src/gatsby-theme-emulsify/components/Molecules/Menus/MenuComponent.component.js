@@ -1,0 +1,71 @@
+import { Component } from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
+import ListItem from "gatsby-theme-emulsify/src/components/Atoms/ListItem/ListItem.component";
+
+/**
+ * Component that renders a menu.
+ */
+export default class MenuComponent extends Component {
+  render() {
+    console.log(this.props)
+    const { menu, id } = this.props;
+
+    const directoryTree = {};
+    directoryTree.children = [];
+
+    menu.forEach(item => {
+      let isActive = false;
+      // Only add one Components subitem to menu - should be refactored later.
+      if (item.name === "Index") {
+        // Mark the item active if its id is the same as the id of the current page.
+        isActive = item.childMdx.id === id;
+        if (!isActive) {
+          // Also mark the item active if the current page id corresponds to a menu item that shares a prefix with the Code item (sibling).
+          let prefix = item.childMdx.fields.slug.replace("index/", "");
+          let siblings = menu.filter(menuitem =>
+            menuitem.childMdx
+              ? menuitem.childMdx.id === id &&
+                menuitem.childMdx.fields.slug.startsWith(prefix)
+              : ""
+          );
+          isActive = siblings.length > 0;
+        }
+        directoryTree.children.push({
+          item: item,
+          active: isActive
+        });
+      }
+    });
+
+    return (
+      <ul
+        className="menu-child"
+        sx={{
+          margin: theme => `0 0 0 ${theme.space[4]}`,
+          "& .menu-link": {
+            fontSize: 0,
+            textTransform: "uppercase"
+          }
+        }}
+      >
+        {directoryTree.children.map(function(item, i) {
+          return (
+            <ListItem
+              active={item.active}
+              item={item.item}
+              key={item.item.childMdx.id}
+              itemName={item.item.childMdx.frontmatter.title}
+              itemLink={item.item.childMdx.fields.slug}
+              icon
+              sx={{
+                fontSize: 1
+              }}
+            />
+          );
+        })}
+      </ul>
+    );
+  }
+}

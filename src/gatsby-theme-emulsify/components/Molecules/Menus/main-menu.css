@@ -1,0 +1,59 @@
+.main-menu {
+  list-style: none;
+  margin: 0;
+}
+
+.main-menu li {
+  list-style: none;
+  transition: all .15s;
+}
+
+.menu-item {
+  cursor: pointer;
+  display: block;
+  list-style: none;
+}
+
+.menu-item--child {
+  border: none;
+}
+
+.menu-item--child--active::before {
+  content: "";
+  display: inline-block;
+  position: relative;
+}
+
+.menu-icon {
+  float: right;
+  position: relative;
+}
+
+.menu-item--open .menu-icon--down {
+  display: none;
+}
+
+.menu-icon--up {
+  display: none;
+}
+
+.menu-item--open .menu-icon--up {
+  display: block;
+}
+
+.menu-child {
+  display: none;
+}
+
+.menu-item--open > .menu-child,
+.menu-item--active > .menu-child {
+  display: block;
+}
+
+.menu-child--open {
+  display: block;
+}
+
+.main-menu .main-menu {
+  height: auto;
+}

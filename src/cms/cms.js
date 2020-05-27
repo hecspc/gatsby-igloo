@@ -1,6 +1,7 @@
 import CMS from 'netlify-cms-app'
 
 import IndexPagePreview from './preview-templates/IndexPagePreview'
+import DefaultPagePreview from './preview-templates/DefaultPagePreview'
 
 import { ctaEditorConfig } from "./editor-components/call-to-action.editor"
 
@@ -14,6 +15,9 @@ CMS.registerPreviewTemplate('page', IndexPagePreview)
 CMS.registerEditorComponent(ctaEditorConfig)
 
 CMS.registerEditorComponent(testimonialEditorConfig)
+
+
+
 
 CMS.registerEditorComponent({
    // Internal id of the component
