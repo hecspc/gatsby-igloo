@@ -1,7 +1,7 @@
 import React from "react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 /** @jsx jsx */
-import { Flex, jsx, useColorMode } from "theme-ui";
+import { jsx } from "theme-ui";
 
 import Sidebar from "gatsby-theme-emulsify/src/components/Organisms/Sidebar/Sidebar.component";
 import Tabs from "gatsby-theme-emulsify/src/components/Organisms/Tabs/Tabs.component";
@@ -9,12 +9,59 @@ import Tabs from "gatsby-theme-emulsify/src/components/Organisms/Tabs/Tabs.compo
 import "gatsby-theme-emulsify/src/components/Templates/site.css";
 import "gatsby-theme-emulsify/src/components/Templates/main.css";
 
-import { createMuiTheme, responsiveFontSizes } from '@material-ui/core/styles';
-import { ThemeProvider } from '@material-ui/styles';
+import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
-import igloo from '../../../theme/igloo'
+import igloo from "../../../theme/igloo";
+import Container from '@material-ui/core/Container';
+import AppBar from "@material-ui/core/AppBar";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Drawer from "@material-ui/core/Drawer";
+import Hidden from "@material-ui/core/Hidden";
+import IconButton from "@material-ui/core/IconButton";
+import Box from "@material-ui/core/Box";
+import MenuIcon from "@material-ui/icons/Menu";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
 
-export default ({
+const drawerWidth = 240;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+  },
+  drawer: {
+    [theme.breakpoints.up("sm")]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
+  },
+  appBar: {
+    [theme.breakpoints.up("sm")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+    },
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+  // necessary for content to be below app bar
+  toolbar: theme.mixins.toolbar,
+  drawerPaper: {
+    width: drawerWidth,
+  },
+  content: {
+    flexGrow: 1,
+    // padding: theme.spacing(3),
+    paddingTop: 0,
+  },
+}));
+
+function ResponsiveDrawer({
   title,
   pageTitle,
   body,
@@ -23,134 +70,146 @@ export default ({
   id,
   menu,
   parentDirectory,
-  collection
-}) => {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [colorMode, setColorMode] = useColorMode();
+  collection,
+}) {
+  const classes = useStyles();
+  let theme = createMuiTheme(igloo);
+  theme = responsiveFontSizes(theme);
 
-  const toggleOpen = () => {
-    setIsMenuOpen(prevState => !prevState);
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
   };
 
   let tabs = docPages
     .filter(
-      docPage =>
+      (docPage) =>
         docPage.node.fields &&
         docPage.node.fields.parentDir === parentDirectory &&
         docPage.node.frontmatter.tab
     )
-    .sort(function(a, b) {
+    .sort(function (a, b) {
       return a.node.frontmatter.tabOrder - b.node.frontmatter.tabOrder;
     });
 
-    let theme = createMuiTheme(igloo);
-
-    theme = responsiveFontSizes(theme);
-
   return (
     <ThemeProvider theme={theme}>
-    <div className={isMenuOpen ? "wrapper-open wrapper" : "wrapper"}>
-      <Flex className="main">
-        <Sidebar
-          id={id}
-          pages={docPages}
-          siteTitle={title}
-          toggleOpen={toggleOpen}
-          menu={menu}
-          collection={collection}
-          designSystems={designSystems}
-        />
-        <Flex
-          className="main-content"
-          sx={{
-            flexBasis: [null, "80%", null],
-            ".tabs": {
-              backgroundColor: "highlight"
-            },
-            ".tabs a:hover": {
-              color: "highlight"
-            },
-            ".active": {
-              backgroundColor: "background",
-              color: "highlight"
-            }
-          }}
-        >
-          <button
-            onClick={e => {
-              setColorMode(colorMode === "default" ? "dark" : "default");
-            }}
-            sx={{
-              cursor: "pointer",
-              color: colorMode === "dark" ? "text" : "background",
-              display: "block",
-              fontWeight: 700,
-              position: "fixed",
-              top: 4,
-              right: 4,
-              backgroundColor: colorMode === "dark" ? "background" : "primary",
-              border: "none",
-              borderRadius: "2px",
-              py: 2,
-              px: 3,
-              fontSize: 1,
-              zIndex: 10,
-              "&:hover": {
-                backgroundColor: "background",
-                color: "primary"
-              }
-            }}
-          >
-            {colorMode === "default" ? "Dark" : "Light"}
-          </button>
-          <h1
+      <CssBaseline />
+      <div className={classes.root}>
+        <Hidden smUp implementation="css">
+          <AppBar position="fixed" className={classes.appBar} color="secondary">
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap>
+                {title}
+              </Typography>
+            </Toolbar>
+          </AppBar>
+        </Hidden>
+
+        <nav className={classes.drawer}>
+          {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+          <Hidden smUp implementation="css">
+            <Drawer
+              // container=""
+              variant="temporary"
+              anchor={theme.direction === "rtl" ? "right" : "left"}
+              open={mobileOpen}
+              onClose={handleDrawerToggle}
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              ModalProps={{
+                keepMounted: true, // Better open performance on mobile.
+              }}
+            >
+              <Sidebar
+                id={id}
+                pages={docPages}
+                siteTitle={title}
+                // toggleOpen={toggleOpen}
+                menu={menu}
+                collection={collection}
+                designSystems={designSystems}
+              />
+            </Drawer>
+          </Hidden>
+
+          <Hidden xsDown implementation="css">
+            <Drawer
+              classes={{
+                paper: classes.drawerPaper,
+              }}
+              variant="permanent"
+              open
+            >
+              <Sidebar
+                id={id}
+                pages={docPages}
+                siteTitle={title}
+                // toggleOpen={toggleOpen}
+                menu={menu}
+                collection={collection}
+                designSystems={designSystems}
+              />
+            </Drawer>
+          </Hidden>
+        </nav>
+       
+        <main className={classes.content}>
+          <Hidden smUp implementation="css">
+            <div className={classes.toolbar}>toolbar</div>
+          </Hidden>
+
+          <div
             className="main-title"
             sx={{
-              background: theme =>
-                `linear-gradient(90deg, ${theme.colors.primary} 20px, transparent 1%) center, linear-gradient(${theme.colors.primary} 20px, transparent 1%) center, ${theme.colors.muted}`,
-              backgroundSize: "22px 22px",
-              color: colorMode === "dark" ? "text" : "background",
-              fontSize: "4rem",
+              background: "#0a74c7",
+              color: "#ffffff",
               lineHeight: "1.2",
               mb: 0,
               marginTop: 0,
-              px: [4, null, 16],
-              py: [8, null, 64],
-              pb: [8, null, 16]
+              // margin: "0 -24px",
+              px: [8, null, 8],
+              py: [8, null, 16],
+              pb: [8, null, 8],
             }}
           >
-            {pageTitle}
-          </h1>
-          {tabs.length ? <Tabs tabs={tabs} id={id} /> : null}
-          <div
-            className="main-content-content"
-            sx={{
-              px: [4, null, 16],
-              py: 12,
-              "& h1": {
-                fontSize: 8
-              },
-              "img": {
-                mb: 6
-              },
-              "iframe": {
-                borderColor: "muted",
-                padding: 4,
-              },
-              "table, td, tr, thead, th": {
-                border: "none",
-                verticalAlign: "top"
-              },
-              "th": {
-                textAlign: "center"
-              }
-            }}
-          >
-            <MDXRenderer>{body}</MDXRenderer>
+            
+            <Typography variant="h2">{pageTitle}</Typography>
+            <Box mt={1}>
+              <Typography variant="h5">
+                Buttons make common actions and navigation easy to perform.
+              </Typography>
+            </Box>
           </div>
-        </Flex>
-      </Flex>
-    </div>
+          <AppBar
+            position="sticky"
+            sx={{
+              padding: "0 24px",
+            }}
+          >
+            {tabs.length ? <Tabs tabs={tabs} id={id} /> : null}
+          </AppBar>
+          <Container>
+          <Box p={8} pt={4}>
+            <MDXRenderer>{body}</MDXRenderer>
+          </Box>
+          </Container>
+        </main>
+        
+      </div>
     </ThemeProvider>
   );
-};
+}
+
+export default ResponsiveDrawer;

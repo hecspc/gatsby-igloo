@@ -6,6 +6,18 @@ tabOrder: 1
 publishToStyleGuide: true
 ---
 
+import DeviceViewer from "../../src/components/ComponentDemo/DeviceViewer.js"
+import Button from "../../src/components/Button/Button.js"
+
+<DeviceViewer defaultView="desktop" uxpId="1"
+   desktopOption = {true}
+   tabletOption = {true}
+   mobileOption = {true}
+   active = {true}
+>
+<Button variant="contained">testqqq</Button>
+</DeviceViewer>
+
 ## This is a CTA Component
 
 Notice that there are tabs at the top of the component pages. Those are added using a couple of fields in the front matter like so:

@@ -4,16 +4,16 @@ import merge from "lodash.merge";
 export default merge({}, emulsifyTheme, {
   // Custom items here
   colors: {
-    background: "#F7FAF9",
+    background: "rgb(247,249,252)",
     text: "#2F495C",
-    primary: "#003594",
+    primary: "#0a74c7",
     muted: "#DAE2E2",
     highlight: "#2F495C",
     accent: "#AAB1B1"
   },
   fonts: {
-    body: "'PT Serif', serif",
-    heading: "'Inter', sans-serif",
+    // body: "'PT Serif', serif",
+    // heading: "'Inter', sans-serif",
   },
   styles: {
     root: {

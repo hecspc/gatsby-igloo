@@ -4,7 +4,7 @@ const igloo = createMuiTheme({
   palette: {
     primary: {
       light: "#5da2fa",
-      main: "#ff0000",
+      main: "#0a74c7",
       contrastText: "#ffffff"
     },
     secondary: {

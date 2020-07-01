@@ -8,10 +8,12 @@ export default ({ tabs, id }) => (
   <nav
     className="tabs"
     sx={{
-      backgroundColor: "accent",
-      px: [4, null, 16],
-      py: 4,
-      pb: 0
+      backgroundColor: "#ffffff",
+      px: 8,
+      py: 0,
+      pb: 0,
+      margin: "0 -24px",
+      // borderBottom: "#eeeeee 1px solid"
     }}
   >
     <ul>
@@ -21,19 +23,26 @@ export default ({ tabs, id }) => (
             to={tab.node.fields.slug}
             className={tab.node.id === id ? "active" : ""}
             sx={{
-              color: "background",
-              borderTopLeftRadius: 0,
-              borderTopRightRadius: 0,
-              fontWeight: "heading",
-              marginRight: 2,
-              px: 4,
+              color: "#2b2b2b",
+              // borderTopLeftRadius: 0,
+              // borderTopRightRadius: 0,
+              fontWeight: "normal",
+              fontSize: "1rem",
+              // marginRight: 2,
+              px: 8,
               py: 2,
+              pt: 13,
+              borderBottom: 3,
+              textDecoration: "none",
               ":hover": {
-                backgroundColor: "muted"
+                backgroundColor: "#edf0f4",
+                // borderBottom: "#edf0f4 solid 3px"
+               
               },
               "&.active": {
-                backgroundColor: "background",
-                color: "accent"
+                // backgroundColor: "background",
+                color: "#0a74c7",
+                borderBottom: "#0a74c7 solid 3px",
               }
             }}
           >

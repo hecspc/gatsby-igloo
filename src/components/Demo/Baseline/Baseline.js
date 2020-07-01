@@ -11,7 +11,7 @@ import PropTypes from "prop-types";
 
 function calculateBackground(type, lineHeight, color) {
   if (type === "line") {
-    const percentage = ((lineHeight - 1) / lineHeight) * 100;
+    // const percentage = ((lineHeight - 1) / lineHeight) * 100;
 
     return {
       backgroundSize: `100% ${lineHeight}px`,

@@ -3,8 +3,6 @@ import PropTypes from "prop-types";
 import ButtonM from "@material-ui/core/Button";
 import {
   makeStyles,
-  createMuiTheme,
-  MuiThemeProvider
 } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   button: {
