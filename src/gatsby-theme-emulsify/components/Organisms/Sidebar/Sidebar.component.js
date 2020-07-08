@@ -150,7 +150,7 @@ class Sidebar extends Component {
           ".main-menu > .menu-item--open": {
             // backgroundColor: "#eeeeee",
             // borderLeft: "6px solid",
-            color: "#2b2b2b",
+            color: "#2b2b2b !important",
             pb: 4,
             "& > span": {
               // color: "#2b2b2b",

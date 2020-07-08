@@ -6,11 +6,11 @@ import { jsx } from "theme-ui";
 import Sidebar from "gatsby-theme-emulsify/src/components/Organisms/Sidebar/Sidebar.component";
 import Tabs from "gatsby-theme-emulsify/src/components/Organisms/Tabs/Tabs.component";
 
-import "gatsby-theme-emulsify/src/components/Templates/site.css";
-import "gatsby-theme-emulsify/src/components/Templates/main.css";
+
 
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { StylesProvider } from '@material-ui/core/styles';
 
 import igloo from "../../../theme/igloo";
 import Container from '@material-ui/core/Container';
@@ -24,6 +24,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
+import "gatsby-theme-emulsify/src/components/Templates/site.css";
+import "gatsby-theme-emulsify/src/components/Templates/main.css";
 
 const drawerWidth = 240;
 
@@ -94,6 +96,8 @@ function ResponsiveDrawer({
     });
 
   return (
+    <StylesProvider injectFirst>
+
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div className={classes.root}>
@@ -209,6 +213,7 @@ function ResponsiveDrawer({
         
       </div>
     </ThemeProvider>
+    </StylesProvider>
   );
 }
 
