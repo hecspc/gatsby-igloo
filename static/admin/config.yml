@@ -9,9 +9,9 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
- - name: button
-   label: Button Documentation
-   folder: components/0__Button/
+ - name: Foundation
+   label: Foundation Documentation
+   folder: styleguide/1__Foundation
    create: false
    extension: 'mdx'
    format: 'frontmatter'
