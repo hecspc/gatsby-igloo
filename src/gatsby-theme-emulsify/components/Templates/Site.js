@@ -190,11 +190,11 @@ function ResponsiveDrawer({
           >
             
             <Typography variant="h2">{pageTitle}</Typography>
-            <Box mt={1}>
+            {/* <Box mt={1}>
               <Typography variant="h5">
                 Buttons make common actions and navigation easy to perform.
               </Typography>
-            </Box>
+            </Box> */}
           </div>
           <AppBar
             position="sticky"
