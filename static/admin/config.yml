@@ -11,7 +11,7 @@ media_folder: static/assets
 public_folder: /assets
 
 collections:
- - name: Foundation
+ - name: foundation
    label: Foundation
    folder: styleguide/1__Foundation
    create: false
@@ -22,7 +22,7 @@ collections:
      - { name: date, label: Date, widget: date }
      - { name: title, label: Title }
      - { name: body, label: Body, widget: markdown }
- - name: Base Theme
+ - name: baseTheme
    label: Base Theme
    folder: styleguide/2__Base Theme
    create: false
@@ -33,7 +33,7 @@ collections:
      - { name: date, label: Date, widget: date }
      - { name: title, label: Title }
      - { name: body, label: Body, widget: markdown }
- - name: Components
+ - name: components
    label: Components
    folder: components/docs
    create: false

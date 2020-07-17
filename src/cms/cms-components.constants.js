@@ -5,6 +5,7 @@ import { Heading } from "./components/heading.component"
 import { SmartLink } from "./components/smart-link.component"
 
 import Button from '../../src/components/Button/Button'
+import DoDont from '../../src/components/DoDont/DoDont'
 
 // Include all components that will be parsed by MDX as React components here.
 // Any React component you'd like to allow your editors to use should be placed here.
@@ -13,6 +14,7 @@ export const CMS_SHORTCODES = {
   Testimonial: props => <Button {...props} />,
   youtube: props => <Button {...props} >youtube</Button>,
   Button: props => <Button {...props} />,
+  DoDont: props => <DoDont {...props} />
 }
 
 // Include any tags you'd like to replace with React components

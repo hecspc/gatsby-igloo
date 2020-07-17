@@ -6,16 +6,19 @@ import DefaultPagePreview from './preview-templates/DefaultPagePreview'
 import { ctaEditorConfig } from "./editor-components/call-to-action.editor"
 
 import {testimonialEditorConfig} from "./editor-components/testimonial.editor"
+import {doDontConfig} from "./editor-components/do-dont.editor"
 
 
-CMS.registerPreviewTemplate('button', IndexPagePreview)
-CMS.registerPreviewTemplate('page', IndexPagePreview)
+CMS.registerPreviewTemplate('foundation', IndexPagePreview)
+CMS.registerPreviewTemplate('baseTheme', IndexPagePreview)
+CMS.registerPreviewTemplate('components', IndexPagePreview)
 
 // Extend editor
 CMS.registerEditorComponent(ctaEditorConfig)
 
 CMS.registerEditorComponent(testimonialEditorConfig)
 
+CMS.registerEditorComponent(doDontConfig)
 
 
 

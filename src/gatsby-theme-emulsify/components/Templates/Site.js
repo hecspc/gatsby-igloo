@@ -173,7 +173,6 @@ function ResponsiveDrawer({
           <Hidden smUp implementation="css">
             <div className={classes.toolbar}>toolbar</div>
           </Hidden>
-
           <div
             className="main-title"
             sx={{
