@@ -4,7 +4,6 @@
 // import MDX from "@mdx-js/runtime";
 // import { CMS_COMPONENTS, CMS_SHORTCODES } from "../cms-components.constants";
 
-
 // const IndexPagePreview = ({ entry, getAsset }) => {
 //   const data = entry.getIn(["data"]).toJS();
 //   if (data) {
@@ -14,7 +13,7 @@
 //         <MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
 //           {data.body}
 //         </MDX>
-//         -- using template -- 
+//         -- using template --
 //         {/* <RenderMarkdown
 //             md={data.body}
 //           /> */}
@@ -42,27 +41,28 @@ import Button from "@material-ui/core/Button";
 import MDX from "@mdx-js/runtime";
 import { CMS_COMPONENTS, CMS_SHORTCODES } from "../cms-components.constants";
 
-
 class IndexPagePreview extends React.Component {
   state = {
-    ready: false
+    ready: false,
   };
 
-  handleRef = ref => {
+  handleRef = (ref) => {
     const ownerDocument = ref ? ref.ownerDocument : null;
     this.setState({
       ready: true,
       jss: create({
         ...jssPreset(),
-        insertionPoint: ownerDocument ? ownerDocument.querySelector("#demo-frame-jss") : null
+        insertionPoint: ownerDocument
+          ? ownerDocument.querySelector("#demo-frame-jss")
+          : null,
       }),
-      sheetsManager: new Map()
+      sheetsManager: new Map(),
     });
   };
 
   render() {
     const { entry } = this.props;
-    const data = entry.getIn(['data']).toJS()
+    const data = entry.getIn(["data"]).toJS();
 
     if (data) {
       // const { greet, testimonials } = data;
@@ -80,18 +80,18 @@ class IndexPagePreview extends React.Component {
                 testimonials={testimonials}
               /> */}
 
-<MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
-          {data.body}
-        </MDX>
+              <MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
+                {data.body}
+              </MDX>
 
               <p>new template</p>
               <Button>test</Button>
             </StylesProvider>
           ) : null}
         </React.Fragment>
-      )
+      );
     } else {
-      return <div>Loading...</div>
+      return <div>Loading...</div>;
     }
   }
 }
