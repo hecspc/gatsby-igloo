@@ -40,6 +40,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import MDX from "@mdx-js/runtime";
 import { CMS_COMPONENTS, CMS_SHORTCODES } from "../cms-components.constants";
+import { DefaultPageTemplate } from '../../page-templates/default-page.template';
 
 class IndexPagePreview extends React.Component {
   state = {
@@ -75,17 +76,12 @@ class IndexPagePreview extends React.Component {
               sheetsManager={this.state.sheetsManager}
             >
               <CssBaseline />
-              {/* <IndexPageTemplate
-                greet={greet}
-                testimonials={testimonials}
-              /> */}
+              <DefaultPageTemplate body={data.body}/> 
 
-              <MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
+              {/* <MDX components={{ ...CMS_COMPONENTS, ...CMS_SHORTCODES }}>
                 {data.body}
-              </MDX>
+              </MDX> */}
 
-              <p>new template</p>
-              <Button>test</Button>
             </StylesProvider>
           ) : null}
         </React.Fragment>
